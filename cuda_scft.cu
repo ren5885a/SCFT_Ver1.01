@@ -234,8 +234,8 @@ extern double Free(GPU_INFO *gpu_info,CUFFT_INFO *cufft_info){
 						sprintf(filename,"pha_%d.dat",gpu_index*cufft_info->batch+i+1);
 
 						dp=fopen(filename,"w");
-						fprintf(dp,"Nx=%d, Ny=%d, Nz=%d",cufft_info->Nx,cufft_info->Ny,cufft_info->Nz);
-						fprintf(dp,"dx=%d, dy=%d, dz=%d",cufft_info->dx,cufft_info->dy,cufft_info->dz);
+						fprintf(dp,"Nx=%d, Ny=%d, Nz=%d\n",cufft_info->Nx,cufft_info->Ny,cufft_info->Nz);
+						fprintf(dp,"dx=%g, dy=%g, dz=%g\n",cufft_info->dx,cufft_info->dy,cufft_info->dz);
 						for(int ijk=0;ijk<cufft_info->NxNyNz;ijk++)
 						fprintf(dp,"%g %g %g %g\n",cufft_info->pha_cu[gpu_index][ijk+i*cufft_info->NxNyNz],cufft_info->phb_cu[gpu_index][ijk+i*cufft_info->NxNyNz],cufft_info->wa_cu[gpu_index][ijk+i*cufft_info->NxNyNz],cufft_info->wb_cu[gpu_index][ijk+i*cufft_info->NxNyNz]);
 
